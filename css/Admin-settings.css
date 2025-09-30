@@ -1,0 +1,117 @@
+/* ==========================================================
+   📌 MAIN CONTENT
+========================================================== */
+.main-content {
+  position: absolute;
+  top: 80px;          /* para di matakpan ng header */
+  left: 70px;         /* naka-align sa mini sidebar */
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;   /* ✅ dito lang mag scroll */
+  background: transparent;
+  transition: all 0.3s ease;
+  z-index: 1;         /* nasa ilalim ng sidebar */
+}
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+   color: #fff; /* example: dark navy */
+  font-size: 26px; /* optional: adjust size */
+  font-weight: 600; /* optional: make it bolder */
+}
+
+/* Settings container */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 10px;
+}
+
+/* Individual settings card */
+.settings-card {
+  background: rgba(255, 255, 255, 0.61); 
+  padding: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Card headings */
+.settings-card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #000000;
+}
+
+/* Each setting item */
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #06031f;
+}
+
+.setting-item label {
+  flex: 1;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="email"],
+.setting-item input[type="password"],
+.setting-item select,
+.setting-item input[type="file"] {
+  flex: 2;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  background: #06031f;
+  color: #ffffff;
+}
+/* Profile preview container */
+.setting-item.profile-image-container {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+#profilePreviewSettings {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #357AE8;
+}
+
+/* File input styling */
+#profileInput {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  cursor: pointer;
+}
+#profileInput:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Buttons */
+.save-btn, .reset-btn {
+  background: #06031f;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.save-btn:hover, .reset-btn:hover {
+  background: #3b3b52;
+}

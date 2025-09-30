@@ -1,0 +1,753 @@
+
+.main-content {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+  right: 0;
+  bottom: 0;
+  padding: 32px 32px 32px 32px;
+  overflow-y: auto;
+  background: url('css/PSU.jpg');
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.main-content h2 {
+  margin-bottom: 28px;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ==========================================================
+   FILTERS SECTION - Glass Effect Like Dashboard
+========================================================== */
+.filters-container {
+  background: rgba(255, 255, 255, 0.61);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-group span {
+  color: #06031f;
+  font-weight: 500;
+}
+
+/* Input Styles */
+.search-input,
+.filter-select,
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid rgba(6, 3, 31, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus,
+.filter-select:focus,
+.date-input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+/* ==========================================================
+   STATISTICS CARDS - Match Dashboard Stat Boxes
+========================================================== */
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  /* Glass look - same as dashboard stat-box */
+  background: rgba(255, 255, 255, 0.61);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+
+  /* Card layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+
+  /* Depth */
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.22),
+    inset 0 0 0 1px rgba(255,255,255,0.12);
+
+  /* Motion/hover */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Subtle highlight overlay */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.22), transparent 60%);
+  pointer-events: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: rgba(26, 115, 232, 0.12);
+  box-shadow: 0 2px 8px rgba(26,115,232,0.08);
+}
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #06031f;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #06031f;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   REQUESTS CONTAINER - Glass Effect
+========================================================== */
+.requests-container {
+  background: rgba(255, 255, 255, 0.61);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+  position: relative;
+}
+
+/* Table Controls */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(6, 3, 31, 0.1);
+}
+
+.bulk-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #06031f;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ==========================================================
+   MODERN BUTTONS - Simple and Clean
+========================================================== */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+/* Selected row effect */
+.requests-table tbody tr.selected {
+  background: rgba(26, 115, 232, 0.22);
+  box-shadow: 0 2px 12px rgba(26,115,232,0.12);
+}
+
+/* Action button focus/hover */
+.action-btn:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+/* Modal ARIA roles */
+.modal[role="dialog"] {
+  outline: none;
+}
+
+/* Notification ARIA roles */
+.notification[role="alert"] {
+  outline: none;
+}
+
+/* Button focus state */
+.btn:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #1a73e8;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1557b0;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(6, 3, 31, 0.1);
+  color: #06031f;
+  border: 1px solid rgba(6, 3, 31, 0.2);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(6, 3, 31, 0.2);
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.btn-warning {
+  background: #ffc107;
+  color: #06031f;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: #e0a800;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   TABLE STYLES - Clean and Professional
+========================================================== */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.requests-table thead {
+  background: #06031f;
+}
+
+.requests-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.requests-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: middle;
+  color: #06031f;
+}
+
+.requests-table tbody tr:hover {
+  background: rgba(26, 115, 232, 0.05);
+}
+
+.requests-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================
+   STATUS BADGES - Simple and Clean
+========================================================== */
+.status-badge,
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.status-pending,
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.status-approved,
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.status-rejected,
+.status.rejected,
+.status.declined {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.status-under_review,
+.status.under_review {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Priority Badges */
+.priority-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.priority-badge.priority-urgent {
+  background: #dc3545;
+  color: white;
+}
+
+.priority-badge.priority-high {
+  background: #fd7e14;
+  color: white;
+}
+
+.priority-badge.priority-medium {
+  background: #ffc107;
+  color: #06031f;
+}
+
+.priority-badge.priority-low {
+  background: #6c757d;
+  color: white;
+}
+
+/* Request Type */
+.request-type {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(26, 115, 232, 0.1);
+  color: #1a73e8;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   ACTION BUTTONS - Simple Icon Style
+========================================================== */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.action-btn.approve-btn {
+  background: #28a745;
+  color: white;
+}
+
+.action-btn.approve-btn:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.action-btn.decline-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.action-btn.decline-btn:hover:not(:disabled) {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.action-btn.view-btn {
+  background: #17a2b8;
+  color: white;
+}
+
+.action-btn.view-btn:hover {
+  background: #138496;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   PAGINATION - Simple and Clean
+========================================================== */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(6, 3, 31, 0.1);
+}
+
+.pagination-info {
+  color: #06031f;
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 4px;
+}
+
+.page-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(6, 3, 31, 0.2);
+  background: white;
+  color: #fdfdfd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.page-btn:hover {
+  background: #1a73e8;
+  color: white;
+}
+
+.page-btn.active {
+  background: #1a73e8;
+  color: white;
+  border-color: #1a73e8;
+}
+
+/* ==========================================================
+   MODALS - Simple and Clean
+========================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 3, 31, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+  color: #06031f;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 12px;
+}
+
+.modal-field {
+  margin-bottom: 16px;
+}
+
+.modal-field strong {
+  display: inline-block;
+  min-width: 80px;
+  color: #06031f;
+  font-weight: 600;
+}
+
+.horizontal-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Modal Info */
+.modal-field p#modalInfo {
+  margin-top: 8px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  color: #06031f;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Feedback Input */
+#feedback,
+.bulk-feedback textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#feedback:focus,
+.bulk-feedback textarea:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+/* File Links */
+#modalFiles {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.file-link:hover {
+  background: #e9ecef;
+}
+
+.no-files {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6c757d;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+/* Clickable Title */
+.clickable-title {
+  color: #1a73e8;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.clickable-title:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+/* Bulk checkbox styles */
+.bulk-checkbox,
+.row-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+@media (max-width: 1200px) {
+  .filters-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .stats-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    left: 0;
+    padding: 16px;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .table-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .pagination-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+}

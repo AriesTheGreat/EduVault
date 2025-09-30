@@ -1,0 +1,407 @@
+/**
+ * EDUVAULT - Admin Button Styles
+ * Centralized button styling for all admin pages
+ * Ensures consistency across the admin interface
+ */
+
+/* ==========================================
+   BASE BUTTON STYLES
+   ========================================== */
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:focus {
+  outline: 3px solid rgba(59, 130, 246, 0.3);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn .material-icons,
+.btn i {
+  font-size: 18px;
+}
+
+/* ==========================================
+   BUTTON VARIANTS
+   ========================================== */
+
+/* Primary Button - Main Actions */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5568d3 0%, #63408b 100%);
+}
+
+/* Secondary Button - Alternative Actions */
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+/* Success Button - Approve/Confirm Actions */
+.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* Danger Button - Delete/Reject Actions */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Warning Button - Caution Actions */
+.btn-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+
+/* Info Button - Informational Actions */
+.btn-info {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.btn-info:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+/* ==========================================
+   BUTTON SIZES
+   ========================================== */
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-sm .material-icons,
+.btn-sm i {
+  font-size: 16px;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.btn-lg .material-icons,
+.btn-lg i {
+  font-size: 20px;
+}
+
+/* Icon Only Button */
+.btn-icon {
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   ACTION BUTTONS (Table/List Actions)
+   ========================================== */
+
+.action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.action-btn .material-icons,
+.action-btn i {
+  font-size: 16px;
+}
+
+/* Approve Action Button */
+.action-btn.approve-btn,
+.approve-btn {
+  background: #10b981;
+  color: white;
+}
+
+.action-btn.approve-btn:hover:not(:disabled),
+.approve-btn:hover:not(:disabled) {
+  background: #059669;
+}
+
+/* Decline/Reject Action Button */
+.action-btn.decline-btn,
+.action-btn.reject-btn,
+.decline-btn,
+.reject-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.action-btn.decline-btn:hover:not(:disabled),
+.action-btn.reject-btn:hover:not(:disabled),
+.decline-btn:hover:not(:disabled),
+.reject-btn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+/* View Action Button */
+.action-btn.view-btn,
+.view-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.action-btn.view-btn:hover:not(:disabled),
+.view-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+/* Edit Action Button */
+.action-btn.edit-btn,
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+}
+
+.action-btn.edit-btn:hover:not(:disabled),
+.edit-btn:hover:not(:disabled) {
+  background: #d97706;
+}
+
+/* Delete Action Button */
+.action-btn.delete-btn,
+.delete-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.action-btn.delete-btn:hover:not(:disabled),
+.delete-btn:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+/* ==========================================
+   BUTTON GROUPS
+   ========================================== */
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================
+   SPECIAL BUTTON STATES
+   ========================================== */
+
+/* Loading State */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Active/Selected State */
+.btn-active {
+  background: #667eea;
+  color: white;
+}
+
+/* Outline Variants */
+.btn-outline-primary {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  color: #6b7280;
+  border: 2px solid #6b7280;
+}
+
+.btn-outline-secondary:hover:not(:disabled) {
+  background: #6b7280;
+  color: white;
+}
+
+.btn-outline-success {
+  background: transparent;
+  color: #10b981;
+  border: 2px solid #10b981;
+}
+
+.btn-outline-success:hover:not(:disabled) {
+  background: #10b981;
+  color: white;
+}
+
+.btn-outline-danger {
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+}
+
+.btn-outline-danger:hover:not(:disabled) {
+  background: #ef4444;
+  color: white;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .btn-group {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+.btn:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
+.btn[aria-pressed="true"] {
+  background: #667eea;
+  color: white;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .action-btn,
+  .btn-loading::after {
+    transition: none;
+    animation: none;
+  }
+}

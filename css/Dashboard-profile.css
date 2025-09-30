@@ -1,0 +1,135 @@
+/* Profile Icon */
+.dashboard-profile {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  border: 2px solid #357AE8;
+}
+
+/* Profile Dropdown Container */
+.profile-dropdown {
+  position: absolute;
+  right: 15px;
+  top: 55px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Comfortaa', sans-serif;
+  gap: 12px;
+  z-index: 1000;
+
+  /* Hidden by default */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none; /* prevent blocking clicks underneath */
+  transition: all 0.25s ease-in-out;
+}
+
+/* Show Dropdown */
+.profile-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* enable interaction */
+}
+/* Profile Info Text */
+.profile-dropdown p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+.profile-dropdown strong {
+  font-size: 16px;
+  color: #111;
+}
+
+/* Profile Image Preview */
+.profile-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px; 
+  border: 3px solid #06031f;
+  display: block;
+}
+
+
+/* File Input */
+.profile-dropdown input[type="file"] {
+  width: 95%;
+  margin-top: 8px;
+  color: #333;
+  padding: 6px;
+  border: 1px solid #969696;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.profile-dropdown input[type="file"]:hover {
+  border-color: #357AE8;
+}
+
+/* Pixel-style Buttons */
+.profile-dropdown button {
+  width: 200px;
+  margin: 5px auto;
+  padding: 8px 0;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #357AE8;
+  color: #fff;
+  font-weight: bold;
+    font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s ease;
+  display: block;
+}
+
+/* Hover effect */
+.profile-dropdown button:hover {
+  background: #245bb5;
+  box-shadow: 2px 2px 0 #000;
+  transform: translate(1px, 1px);
+}
+
+/* Save Button */
+#saveProfileBtn {
+  background: #357AE8;
+  color: #fff;
+  margin-top: 5px;
+}
+#saveProfileBtn:hover {
+  background: #245bb5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Logout Button */
+#logoutBtn {
+  background: #e53935;
+  color: #fff;
+  margin-top: 5px;
+}
+#logoutBtn:hover {
+  background: #b71c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Small arrow pointing to profile icon */
+.profile-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 25px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}

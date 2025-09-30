@@ -1,0 +1,267 @@
+/* ==============================
+   ROOT VARIABLES
+   ============================== */
+:root {
+  --bg:#06031f;
+  --text:#ffffff;
+  --muted:#cccccc;
+  --btn-text:#06031f;
+  --btn-bg:#ffffff;
+  --btn-hover:#dcdcdc;
+  --radius:15px;
+  --shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* ==============================
+   GLOBAL RESET & BASE STYLES
+   ============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Comfortaa', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==============================
+   BACKGROUND IMAGE & BLUR
+   ============================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/PSU.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* ==============================
+   REGISTRATION CONTAINER (GLASS EFFECT)
+   ============================== */
+.register-container {
+  width: min(600px, 95vw);
+  padding: 30px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  /* scroll for overflow */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar */
+.register-container::-webkit-scrollbar {
+  width: 6px;
+}
+.register-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 6px;
+}
+.register-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ==============================
+   LOGO
+   ============================== */
+.logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+/* ==============================
+   REGISTER TITLE
+   ============================== */
+.register-title {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  
+}
+
+/* ==============================
+   FORM STYLING
+   ============================== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Dropdown Role */
+select {
+  width: 150px;
+  height: 45px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.329);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto; /* center dropdown */
+  display: block; /* necessary for margin auto */
+}
+
+select:focus {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+option {
+  background: #06031f;
+  color: #fff;
+}
+
+/* Name Row */
+.name-row {
+  display: flex;
+  gap: 12px;
+}
+
+.name-row input {
+  flex: 1;
+}
+
+/* Input fields */
+.register-form input {
+  width: 100%;
+  height: 45px;
+  padding: 0 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  font-family: 'Comfortaa', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+/* ==============================
+   ROLE + DEPARTMENT ROW
+   ============================== */
+.role-dept-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.role-dept-row select {
+  flex: 1; /* equal width */
+  height: 45px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.329);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-dept-row select:focus {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+.role-dept-row option {
+  background: #fff;
+  color: #000;
+}
+
+
+/* ==============================
+   BUTTON STYLING
+   ============================== */
+.btn {
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  display: flex; /* flex layout for alignment */
+  align-items: center;
+  justify-content: center;
+  background-color: #357AE8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px; /* fixed width */
+  height: 45px;
+  font-size: 15px;
+  margin: 10px auto 0 auto; /* center button */
+  display: block; /* necessary for margin auto */
+}
+
+.btn:hover {
+  background-color: #245bb5;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   INFO TEXT
+   ============================== */
+.info-text {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+/* ==============================
+   LOGIN/REDIRECT LINKS
+   ============================== */
+.login-text {
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+.login-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

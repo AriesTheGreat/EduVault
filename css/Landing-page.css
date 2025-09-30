@@ -1,0 +1,856 @@
+
+body {
+overflow-x: hidden;
+margin: 0;
+padding: 0;
+font-family: 'Courier New', monospace;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent */
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* mas mataas kaysa dati */
+    padding: 0 40px;
+    background-color: #06031f;
+    width: 100%;
+    z-index: 999;
+    gap: 60px; /* medyo lumuwag ang pagitan ng logo at nav */
+}
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+  color: #444;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.google-btn:hover {
+  background-color: #357AE8;
+  color: white;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo 2 (first logo sa kaliwa) */
+.logo-container .second-logo {
+    height: 100px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* Logo 1 (second logo bago ang text) */
+.logo-container .main-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-container h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 6px;
+    color: #ffffff;
+    line-height: 1.2;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-container h1 .sub-text {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: left;
+}
+
+.logo-container h1 .logo-line {
+    display: block;
+    width: 95%;
+    border: 0;
+    border-top: 2px solid #ffffff;
+    margin: 5px 0;
+}
+
+/* Responsive para di magkadikit sobra pag maliit screen */
+@media (max-width: 768px) {
+    .logo-container {
+        gap: 8px;
+    }
+    .logo-container .second-logo {
+        height: 50px;
+    }
+    .logo-container .main-logo {
+        height: 65px;
+    }
+    .logo-container h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6600;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu span {
+    height: 3px;
+    width: 25px;
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+    .menu {
+        display: flex;
+    }
+}
+
+/* HERO SECTIONS */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.hero-inner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-inner__content {
+    text-align: center;
+}
+
+/* HERO 1 SPECIFIC STYLING */
+.hero-1 .hero-inner__content {
+    color: #ffffff;       
+    font-weight: 700;     
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+/* Title Letters Animation */
+.hero-1 .hero-inner__content h1 {
+    font-size: 80px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.hero1-title .word {
+    display: inline-block;
+}
+
+.hero1-title .word span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Active state triggers the animation */
+.hero1-title.active .word span {
+    animation: letterAppear 0.3s forwards;
+}
+
+.hero1-title.active .word span:nth-child(1) { animation-delay: 0s; }
+.hero1-title.active .word span:nth-child(2) { animation-delay: 0.1s; }
+.hero1-title.active .word span:nth-child(3) { animation-delay: 0.2s; }
+.hero1-title.active .word span:nth-child(4) { animation-delay: 0.3s; }
+.hero1-title.active .word span:nth-child(5) { animation-delay: 0.4s; }
+.hero1-title.active .word span:nth-child(6) { animation-delay: 0.5s; }
+.hero1-title.active .word span:nth-child(7) { animation-delay: 0.6s; }
+
+.hero1-title.active .word:nth-child(2) span:nth-child(2) { animation-delay: 0.7s; }
+.hero1-title.active .word:nth-child(2) span:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes letterAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Paragraph fade effect */
+.hero-1 .hero-inner__content p {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-1 .hero-inner__content p.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+/* Button fade effect */
+.hero-inner__content button {
+    background-color: #06031f;
+    padding: 20px 60px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-inner__content button.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+}
+
+.hero-inner__content button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transition: 0.3s;
+}
+.wave-text {
+  color: #06031f; 
+  display: inline-block;
+  font-weight: bold;
+}
+
+.wave-text span {
+  display: inline-block;
+  animation: wave 1.2s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.wave-text span:nth-child(1) { --i:0; }
+.wave-text span:nth-child(2) { --i:1; }
+.wave-text span:nth-child(3) { --i:2; }
+.wave-text span:nth-child(4) { --i:3; }
+.wave-text span:nth-child(5) { --i:4; }
+.wave-text span:nth-child(6) { --i:5; }
+.wave-text span:nth-child(7) { --i:6; }
+.wave-text span:nth-child(8) { --i:7; }
+.wave-text span:nth-child(9) { --i:8; }
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 991px) {
+    .hero-inner__content h1 { font-size: 4em; }
+    .hero-inner__content p { font-size: 1.4em; }
+}
+
+@media only screen and (max-width: 575px) {
+    .hero-inner__content h1 { font-size: 3em; }
+    .hero-inner__content p { font-size: 1em; }
+    .hero-inner__content button { padding: 16px 40px; }
+}
+
+
+
+/* RESPONSIVE */
+@media only screen and (max-width: 991px) {
+    .hero-inner__content h1 { font-size: 4em; }
+    .hero-inner__content p { font-size: 1.4em; }
+}
+
+@media only screen and (max-width: 575px) {
+    .hero-inner__content h1 { font-size: 3em; }
+}
+
+@media only screen and (max-width: 375px) {
+    .hero-inner__content { padding: 0 10px; }
+    .hero-inner__content h1 { font-size: 2em; margin-bottom: 16px; font-weight: 600; }
+    .hero-inner__content p { font-size: 1em; margin-bottom: 20px; }
+    .hero-inner__content button { padding: 16px 40px; }
+}
+
+/* Make content above blur/ Background Images & color */
+.hero-1 {
+    background-image: url('../img/PSU.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* keep parallax */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-1::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: inherit; /* use same background */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);  /* adjust blur */
+    z-index: 0;
+}
+
+.hero-4 {
+    background-image: url(../img/PSU.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* keep parallax */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-4::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+/* Make content above blur */
+.hero-1 .hero-inner__content,
+.hero-4 .hero-inner__content {
+    position: relative;
+    z-index: 1;
+}
+.hero-2 {
+  position: relative;
+  height: 85vh; /* retain current height */
+  padding: 40px 20px;
+  overflow: hidden;
+
+  /* updated background like Hero 4 */
+  background: 
+    linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7)),
+    url("PSU1.jpg") no-repeat center center/cover;
+  text-align: center;
+  color: #000; /* readable on white gradient */
+}
+
+/* All content must be above */
+.hero-2 > * {
+  position: relative;
+  z-index: 1; /* content on top */
+}
+
+/* Remove old blurred ::before */
+.hero-2::before {
+  display: none;
+}
+
+/* Slide container */
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  backface-visibility: hidden;
+  transform: rotateY(90deg);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: rotateY(-90deg);
+  z-index: 0;
+}
+
+/* Hide images inside slides */
+.slide img {
+  display: none !important;
+}
+
+/* Slide text box */
+.slide-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  max-width: 70%;
+  padding: 20px;
+  background: #06031f; /* dark transparent */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Slide headings */
+.slide-text h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8em;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  color: #fff;
+}
+
+/* Slide icon (trophy) */
+.slide-icon {
+  margin-right: 12px;
+  color: rgba(255, 255, 255, 0.9); /* white-ish */
+  font-size: 1.5em;
+}
+
+/* Slide paragraph */
+.slide-text p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Dots for navigation */
+.dots-container {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(6, 3, 31, 0.61);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background-color: #06031f;
+}
+
+
+/* HERO 3 SPECIFIC */
+.hero-3 .hero-inner__content h1 {
+    color: #ffffff;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.hero-3 {
+    background-color: #06031f;
+    padding: 80px 0;          /* dagdag spacing sa taas at baba */
+    min-height: 700px;        /* taasan default height */
+    position: relative;
+    z-index: 1;
+}
+/* GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-top: 30px;
+    overflow: visible;
+}
+.grid-item {
+    position: relative;
+    overflow: visible; /* allow zoom & text to go outside */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* IMAGE */
+.grid-item img {
+    width: 100%;
+    height: 250px;  /* dati 200px, tinaasan ko para proportioned */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+/* ZOOM EFFECT */
+.grid-item:hover {
+    z-index: 10; /* bring whole item to front */
+}
+
+.grid-item:hover img {
+    transform: scale(1.5);
+}
+
+
+/* TEXT ON HOVER */
+.grid-item-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* make sure it’s above the image */
+}
+
+.grid-item:hover .grid-item-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TEXT STYLE */
+.grid-item-text h3 { margin: 5px 0; font-size: 1.4em; }
+.grid-item-text p { margin: 0; font-size: 1em; }
+
+/* OPTIONAL: give initial transform for smooth transition */
+.grid-item-text { transform: translateY(10px); }
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+    .grid-item img { max-height: 200px; }
+}
+
+@media (max-width: 575px) {
+    .grid-container { grid-template-columns: 1fr; }
+    .grid-item img { max-height: 180px; }
+}
+/*******************************************************************************************************/
+/* HERO 4 features - Option 2 */
+.hero-4 {
+  height: 90vh; 
+  padding: 40px 20px;
+  background: 
+    linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
+    url("PSU1.jpg") no-repeat center center/cover;
+  text-align: center;
+  position: relative;
+  color: #06031f;
+}
+
+.hero-4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 0;
+}
+
+.hero-4 h1,
+.hero-4 p,
+.features-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.hero-4 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  margin-top: -20px;   /* 🔼 shifted upward */
+}
+
+/* Paragraph */
+.hero-4 p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  margin-top: -10px;   /* 🔼 shifted upward */
+}
+
+/* ✅ Centered feature cards */
+.features-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+  top: -15px;   /* 🔼 whole container moved up */
+  left: -10px;
+}
+
+/* Flip card base */
+.flip-card {
+  background: transparent;
+  width: 280px;
+  height: 350px;
+  perspective: 1000px;
+  flex-shrink: 0;
+}
+
+/* Inner container */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  will-change: transform; /* smoother flip */
+}
+
+/* Flip on hover (rotate only, no scale to avoid blur) */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* fix blur */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glow on hover */
+.flip-card:hover .flip-card-front,
+.flip-card:hover .flip-card-back {
+  box-shadow: 0 15px 35px rgba(7, 19, 71, 0.7);
+}
+
+/* Front side for ICONS */
+.flip-card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  font-size: 2rem;
+  color: #06031f;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.flip-card-front:hover {
+  transform: translateY(-8px) scale(1.05); /* subtle scale only for icon */
+  filter: brightness(1.2);
+}
+
+/* Back side */
+.flip-card-back {
+  background: #06031f;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flip-card-back h3 {
+  margin-bottom: 40px;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.flip-card-back p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive tweaks */
+@media(max-width: 991px){
+  .features-container { gap: 20px; }
+  .flip-card { width: 220px; height: 280px; }
+  .flip-card-front { font-size: 4rem; }
+}
+
+@media(max-width: 575px){
+  .features-container { flex-direction: column; align-items: center; gap: 20px; }
+  .flip-card { width: 90%; height: 250px; }
+  .flip-card-front { font-size: 3.5rem; }
+}
+
+.hero-5 {
+  height: 100vh; /* same as other heroes */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top section with blurred background image */
+.hero-5-top {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image with blur */
+.hero-5-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('img/PSU.jpg') no-repeat center center/cover;
+  filter: blur(5px);
+  transform: scale(1.05); /* prevents edges from showing due to blur */
+  z-index: 0; /* behind the logos */
+}
+
+/* Logos overlay on top of background */
+.hero-5-logos {
+  position: relative; /* above blurred background */
+  display: flex;
+  gap: 100px; /* spacing between logos */
+  z-index: 1;
+}
+
+.hero-5-logos img {
+  height: 200px; /* fixed logo height */
+  width: auto;
+  object-fit: contain;
+  /* steady, no hover effects */
+}
+
+/* Bottom section */
+.hero-5-bottom {
+  flex: 1; /* bottom half */
+  background-color: #06031f; /* dark background */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-content .footer-logo {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-content p,
+.footer-content a {
+  margin: 5px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+  

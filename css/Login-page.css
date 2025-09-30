@@ -1,0 +1,276 @@
+:root {
+  --bg: #06031f;
+  --text: #ffffff;
+  --muted: #cccccc;
+  --btn-text: #06031f;
+  --btn-bg: #ffffff;
+  --btn-hover: #dcdcdc;
+  --radius: 15px;
+  --shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Courier New', monospace;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('../img/PSU.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* University Title */
+.psu-title {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.psu-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 320px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Animated Login Text */
+.admin-sub {
+  margin-top: 8px;
+  font-size: clamp(16px, 3vw, 22px);
+  font-weight: bold;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--btn-bg);
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.863);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.back-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.1);
+  color: var(--btn-hover);
+  border: 2px solid rgba(255,255,255,0.9);
+}
+
+/* Remember Me */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text);
+  margin: 5px 0 10px 2px;
+  width: 100%;
+  max-width: 320px;
+}
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #357AE8;
+  cursor: pointer;
+}
+
+/* Message Styles */
+.error-message, .success-message {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff3333;
+}
+
+.success-message {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  color: #00cc00;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Login Container */
+.login-container {
+  width: min(600px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 32px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+/* Logo */
+.login-logo {
+  height: 120px;
+  width: auto;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.35));
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Form Fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  align-items: center;
+}
+.login-form input {
+  width: 320px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.login-form input:focus {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+  border-color: #357AE8;
+}
+.login-form input.error {
+  border-color: #ff3333;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+.login-form input.error:focus {
+  border-color: #ff3333;
+  box-shadow: 0 5px 10px rgba(255, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn, .google-btn {
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+.btn {
+  background-color: #357AE8;
+  color: #fff;
+}
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -6px;
+  background-color: var(--btn-bg);
+  color: var(--bg);
+}
+.btn:hover, .google-btn:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+.google-btn:hover {
+  background-color: #357AE8;
+  color: var(--btn-bg);
+}
+.google-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Animated wave */
+.wave span {
+  display: inline-block;
+  animation: wave 1.2s infinite ease-in-out;
+}
+.wave span:nth-child(1) { animation-delay: 0s; }
+.wave span:nth-child(2) { animation-delay: 0.1s; }
+.wave span:nth-child(3) { animation-delay: 0.2s; }
+.wave span:nth-child(4) { animation-delay: 0.3s; }
+.wave span:nth-child(5) { animation-delay: 0.4s; }
+@keyframes wave {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+}
+
+/* Signup Link */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+.signup-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.signup-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

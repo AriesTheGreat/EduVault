@@ -1,0 +1,200 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  color: #333;
+  overflow: hidden;
+}
+
+/* Background wrapper */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+  /* Image only, no gradient */
+  background: url('../img/PSU.jpg') no-repeat center center fixed;
+  background-size: cover;
+  /* Blur effect */
+  filter: blur(5px);
+  /* Stay behind content */
+  z-index: -1;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #06031f;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   padding: 0 20px 0 5px;
+  color: white;
+  z-index: 1000;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .logo {
+  width: 80px;
+  height: 80px;
+}
+
+.header .system-name {
+  font-size:22px;
+  font-weight: 600;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-right .material-icons {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header-right .material-icons:hover {
+  color: rgba(182, 182, 182, 0.5);
+}
+/* ============================= */
+/* SIDEBAR DEFAULT (collapsed) */
+/* ============================= */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 70px;
+  height: calc(100% - 80px);
+  background: #06031f;
+  color: white;
+  padding-top: 20px;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, justify-content 0.3s ease;
+  border-radius: 8px;
+}
+
+.sidebar ul li a:hover {
+  background: #3b3b52;
+}
+
+.sidebar .material-icons {
+  font-size: 24px;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* text hidden default */
+.sidebar .text {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+/* ============================== */
+/* EXPANDED STATE (button toggle) */
+/* ============================== */
+.sidebar.expanded {
+  width: 200px;
+}
+
+.sidebar.expanded ul li a {
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.sidebar.expanded .text {
+  display: inline;
+  opacity: 1;
+}
+
+.sidebar.hover-enabled:hover {
+  width: 200px;
+}
+
+.sidebar.hover-enabled:hover ul li a {
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.sidebar.hover-enabled:hover .text {
+  display: inline;
+  opacity: 1;
+}
+
+/* ===== Submenu ===== */
+.submenu {
+  list-style: none;
+  padding-left: 40px;
+  display: none;
+  flex-direction: column;
+}
+
+.submenu li {
+  margin: 8px 0;
+}
+
+.submenu li a {
+  font-size: 14px;
+  color: #ddd;
+  padding: 8px;
+  display: block;
+}
+
+.submenu li a:hover {
+  color: #fff;
+}
+
+/* 🔹 Arrow default (hidden) */
+.has-submenu .arrow {
+  margin-left: auto;          
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  opacity: 0;
+  display: none;
+}
+
+/* 🔹 Show arrow kapag hover-enabled OR expanded sidebar */
+.sidebar.hover-enabled:hover .has-submenu .arrow,
+.sidebar.expanded .has-submenu .arrow {
+  display: inline-block;
+  opacity: 1;
+}
+
+/* 🔹 Rotate arrow kapag submenu open */
+.has-submenu.open .arrow {
+  transform: rotate(180deg);
+}
+

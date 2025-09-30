@@ -1,0 +1,486 @@
+/* ==========================
+   MAIN CONTENT
+========================== */
+.main-content {
+  margin-top: 70px; /* space below header */
+  margin-left: 70px; /* space beside sidebar */
+  padding: 10px;
+  max-height: calc(100vh - 80px); /* fit viewport */
+  overflow-y: auto; /* scroll if content exceeds */
+  transition: margin-left 0.3s ease; /* smooth shift when sidebar changes */
+}
+
+.main-content h2 {
+  color: #ffffff; 
+  font-size: 26px; 
+  font-weight: 600; 
+}
+.calendar-popup {
+  position: absolute;
+  top: 40px; /* below the icon */
+  right: 0;
+  width: 280px;
+  background: #fff;
+  color: #06031f;
+  border: 1px solid #06031f;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  z-index: 100;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.calendar-header button {
+  background: #06031f;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#calendarTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#calendarTable td {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#calendarTable td:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* ==========================
+   FILTERS SECTION
+========================== */
+.filters-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  /* ADD THIS */
+  margin-top: 20px; 
+}
+
+
+.filter-right {
+  display: flex;
+  align-items: center;
+}
+
+.filter-right select {
+  padding: 6px 12px;
+  border: 1px solid #ffffff;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Search input */
+#titleSearch {
+  padding: 6px 10px 6px 36px; 
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  width: 550px; 
+  border-radius: 6px;
+}
+
+/* Search icon inside input */
+.search-icon {
+  position: absolute;
+  left: 5px;
+  border-radius: 6px;
+  top: 50%;
+  background-color: #0d1b3d;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #ffffff;
+  pointer-events: none; 
+}
+
+/* ==========================
+   UPLOAD BUTTON
+========================== */
+.upload-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #0d1b3d;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-btn:hover { 
+  background: #28a745; 
+}
+
+/* ==========================
+   RESEARCH CARDS
+========================== */
+.research-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.highlight {
+  background-color: yellow;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.research-card {
+  background: rgba(255, 255, 255, 0.61); 
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.research-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.253);
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0d1b3d;
+}
+
+.card-title:hover { 
+  text-decoration: underline; 
+}
+
+.card-desc { 
+  font-family: 'Georgia', serif;
+  font-size: 14px; 
+  color: #000000; 
+}
+
+.card-meta { 
+  font-size: 12px; 
+  color: #424242; 
+}
+
+/* Buttons container */
+.card-actions {
+  display: flex;
+  gap: 8px; 
+}
+
+/* Generic button styles */
+.card-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;     
+  height: 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Archive button */
+.archive-btn {
+  background: #8d0a17; 
+  color: #fff;
+}
+
+.archive-btn:hover {
+  background: #28a745;
+}
+
+/* Archive icon */
+.archive-btn i {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* ==========================
+   MAIN CONTENT ADJUSTMENT ON SIDEBAR HOVER
+========================== */
+.sidebar.hover-enabled:hover ~ .main-content { 
+  margin-left: 200px; 
+}
+
+/* ==========================
+   UPLOAD MODAL
+========================== */
+.upload-modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* overlay */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-modal-content {
+  background: #0d1b3d; /* dark blue */
+  color: #ffffff;
+  padding: 20px 50px 40px 30px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ==========================
+   FIELD ROW LAYOUT
+========================== */
+.upload-modal-content .field-row {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Labels fixed width for alignment */
+.upload-modal-content .field-row label {
+  min-width: 80px;   /* adjust until pantay */
+  text-align: left;
+}
+
+/* Inputs / dropdowns same width */
+.upload-modal-content select#researchDepartment,
+.upload-modal-content input#researchYear,
+.upload-modal-content select#researchCategory {
+  padding: 8px 10px;          
+  border: none;
+  width: 170px;   /* ✅ all same width */
+  font-size: 14px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  border-radius: 6px
+}
+
+.upload-modal-content select#researchDepartment:focus,
+.upload-modal-content input#researchYear:focus,
+.upload-modal-content select#researchCategory:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 5px rgba(0,123,255,0.6);
+}
+/* Target options inside the researchDepartment dropdown */
+.upload-modal-content select#researchDepartment option,
+.upload-modal-content select#researchCategory option {
+    color: #000000;       
+    background-color: #ffffff; 
+}
+
+
+.upload-modal-content textarea#researchInfo {
+  width: 100%;
+  min-height: 80px;        
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.upload-modal-content textarea#researchInfo::placeholder {
+  color: #ddd;
+}
+
+.upload-modal-content textarea#researchInfo:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 5px rgba(0,123,255,0.6);
+}
+
+/* ==========================
+   PROGRAM DROPDOWN OPTIONS
+========================== */
+
+.upload-modal-content select#researchProgram option {
+  color: #000000;      
+  background-color: #ffffff; 
+}
+
+
+.upload-modal-content select#researchProgram option:hover {
+  background-color: #28a745; 
+  color: #fff;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.close-modal:hover {
+  color: #28a745;
+  transform: rotate(90deg);
+}
+
+/* Form inputs inside modal */
+.upload-modal-content input[type="text"],
+.upload-modal-content input[type="file"] {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.upload-modal-content input[type="text"]::placeholder,
+.upload-modal-content input[type="file"]::placeholder {
+  color: #ddd;
+}
+
+.upload-modal-content input[type="text"]:focus,
+.upload-modal-content input[type="file"]:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 5px rgba(0,123,255,0.6);
+}
+
+/* Labels inside modal */
+.upload-modal-content label {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+/* Submit button inside modal */
+.submit-btn {
+  margin-top: 12px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .header { padding: 0 10px; }
+  .header .system-name { font-size: 18px; }
+  .main-content h2 { font-size: 22px; }
+  #titleSearch { width: 200px; }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .sidebar { width: 0; padding: 0; overflow: hidden; }
+  .sidebar.expanded { width: 180px; padding-top: 20px; }
+  .main-content { margin-left: 0; padding: 15px; }
+
+  /* Filters stack vertically */
+  .filters-top { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .filter-right { width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+  #titleSearch { width: 100%; }
+  .filter-right select { flex: 1; }
+
+  /* Research cards stacked */
+  .research-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .card-actions { align-self: flex-end; }
+}
+
+/* Extra small devices (<480px) */
+@media (max-width: 480px) {
+  .header { height: 60px; }
+  .header .logo { width: 50px; height: 50px; }
+  .header .system-name { font-size: 16px; }
+  .header-right { gap: 10px; }
+  .menu-btn { font-size: 24px; }
+
+  .upload-modal-content { width: 95%; padding: 15px; }
+}
+
+/* Mobile sidebar slide-in */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 60px; 
+    left: -200px; 
+    width: 200px;
+    height: calc(100% - 60px);
+    transition: left 0.3s ease;
+    z-index: 1500;
+  }
+
+  .sidebar.active { left: 0; }
+
+  .main-content { margin-left: 0 !important; }
+}
